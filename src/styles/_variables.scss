@@ -1,0 +1,77 @@
+:root {
+
+    /* Colors: */
+    --blue_3_-f1f6fb: #F1F6FB;
+    --green_1_-00e022: #00E022;
+    --red_1_-dd3542: #DD3542;
+    --gray_1_-8e8e8e: #8E8E8E;
+    --gray_2_-dedede: #DEDEDE;
+    --gray_3_-cccccc-button-off: #CCCCCC;
+    --gray_4_registros_-f7f7f7: #F7F7F7;
+    --white_-ffffff: #FFFFFF;
+    --azul-plomo: #ABB9C7;
+    --azul-plomo-50-: #ABB9C780;
+    ---413e4d-input-color: #413E4D;
+    
+    /* Font/text values */
+    --unnamed-font-family-open-sans: Open Sans;
+    --unnamed-font-family-lato: Lato;
+    --unnamed-font-style-normal: normal;
+    --unnamed-font-weight-900: 900px;
+    --unnamed-font-weight-bold: bold;
+    --unnamed-font-weight-normal: normal;
+    --unnamed-font-size-14: 14px;
+    --unnamed-font-size-16: 16px;
+    --unnamed-font-size-22: 22px;
+    --unnamed-character-spacing-0: 0px;
+    --unnamed-line-spacing-19: 19px;
+    --unnamed-line-spacing-22: 22px;
+    --unnamed-line-spacing-27: 27px;
+    }
+    
+    /* Character Styles */
+    .unnamed-character-style-1 {
+    font-family: var(--unnamed-font-family-open-sans);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-14);
+    line-height: var(--unnamed-line-spacing-19);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(---413e4d-input-color);
+    }
+    .unnamed-character-style-2 {
+    font-family: var(--unnamed-font-family-open-sans);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-bold);
+    font-size: var(--unnamed-font-size-16);
+    line-height: var(--unnamed-line-spacing-22);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--red_1_-dd3542);
+    }
+    .unnamed-character-style-3 {
+    font-family: var(--unnamed-font-family-lato);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-14);
+    line-height: var(--unnamed-line-spacing-22);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(---413e4d-input-color);
+    }
+    .unnamed-character-style-4 {
+    font-family: var(--unnamed-font-family-lato);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-900);
+    font-size: var(--unnamed-font-size-16);
+    line-height: var(--unnamed-line-spacing-22);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--red_1_-dd3542);
+    }
+    .unnamed-character-style-5 {
+    font-family: var(--unnamed-font-family-lato);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-900);
+    font-size: var(--unnamed-font-size-22);
+    line-height: var(--unnamed-line-spacing-27);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(---413e4d-input-color);
+    }
