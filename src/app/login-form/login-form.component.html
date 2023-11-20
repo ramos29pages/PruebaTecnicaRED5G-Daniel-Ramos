@@ -1,28 +1,42 @@
-
 <main>
-    <section class="head">
-        <div class="logo-container">
-            <img src="../../assets/img/Grupo 258.png" alt="LOGO DE SUFIPAY">
-        </div>
-        <h2 class="title">Sufipay</h2>
-        <h5>Administrador comercial</h5>
+  <img class="rhombuses-up animate__animated animate__fadeInRight animate__slower"
+    src="../../assets/img/Grupo 32966.svg" alt="">
+  <img class="circle-up animate__animated animate__fadeIn animate__slower animate__delay-2s"
+    src="../../assets/img/Elipse 197.svg" alt="">
+  <img class="points-up animate__animated animate__fadeIn animate__slower animate__delay-2s"
+    src="../../assets/img/Grupo 36052.svg" alt="">
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <section class="head animate__animated animate__fadeInDown">
+      <div class="logo-container">
+        <img src="../../assets/img/Grupo 258.png" alt="LOGO DE SUFIPAY">
+      </div>
+      <h2 class="title">Sufipay</h2>
+      <h5>Administrador comercial</h5>
     </section>
-    <section class="input-container">
-        <p class="info"></p>
-        <div class="form-field">
-            <input id="username" type="text"  placeholder=" " required>
-            <label for="username">Usuario</label>
-          </div>
+    <section class="input-container animate__animated animate__fadeInUp">
+      <p class="info">{{infoUsername}}</p>
+      
+      <div class="form-field" [ngClass]="{error : errUsername}">
+        <input id="username" type="text" placeholder=" " formControlName="username" required>
+        <label for="username">Usuario</label>
+      </div>
 
-        <p class="info"></p>
-          <div class="form-field">
-            <input id="password" type="password" placeholder=" " required>
-            <label for="password">Contraseña</label>
-            <i class="fa-solid fa-user icon-input"></i>
-          </div>    
+      <p class="info">{{infoPassword}}</p>
+      <div class="form-field" [ngClass]="{error : errPassword}" >
+        <input id="password" type="password" placeholder=" " required formControlName="password">
+        <label for="password">Contraseña</label>
+      </div>
     </section>
-    <section class="button-container">
-        <button type="button">INGRESAR</button>
-        <p>No recuerdo mi contraseña</p>
+    <section class="button-container animate__animated animate__fadeInUp">
+      <button type="submit">INGRESAR</button>
+      <p (click)="forgetPassword()">No recuerdo mi contraseña</p>
     </section>
+  </form>
+
+  <img class="circle-down animate__animated animate__fadeIn animate__slower animate__delay-2s" src="../../assets/img/Elipse 216.svg"
+    alt="">
+  <img class="points-dowm animate__animated animate__fadeIn animate__slower animate__delay-2s" src="../../assets/img/Grupo 36052.svg"
+    alt="">
+  <img class="rhombuses-down animate__animated animate__fadeInLeft animate__slower"
+    src="../../assets/img/Grupo 32967.svg" alt="">
 </main>

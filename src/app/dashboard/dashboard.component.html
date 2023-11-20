@@ -1,0 +1,96 @@
+<section animate__animated animate__fadeIn>
+    <div class="head">
+        <div>
+        </div>
+        <div class="logo-container">
+            <img src="../../assets/img/Grupo 258.png" alt="" srcset="">
+        </div>
+        <button (click)="goHome()">
+            Cerrar sesión
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+    </div>
+
+    <div class="download-section">
+        <p>Mis desembolsos</p>
+        <button (click)="descargarRegistros()" title="Descargar registros.">
+            <i class="fa-solid fa-download"></i>
+            Descargar
+        </button>
+    </div>
+    <form>
+        <i class="fa-solid fa-circle-xmark" *ngIf="activeFilters"></i>
+        <div class="form-field-select">
+            <select id="tipoid" [(ngModel)]="tipoDocumento" name="tipoDocumento" (ngModelChange)="aplicarFiltro()">
+                <option value="1">Cédula</option>
+                <option value="2">Tarjeta ID</option>
+            </select>
+            <label for="tipoid" [ngClass]="{labelUp: label}"> Tipo doc.</label>
+        </div>
+
+        <div class="form-field">
+            <input id="documento" type="text" placeholder=" " [(ngModel)]="numeroDocumento" name="numeroDocumento"
+                (ngModelChange)="aplicarFiltro()">
+            <label for="documento">Numero de documento</label>
+        </div>
+
+        <div class="form-field">
+            <input id="desembolso" type="text" placeholder=" " [(ngModel)]="numeroDesembolso" name="numeroDesembolso"
+                (ngModelChange)="aplicarFiltro()">
+            <label class="daniel" for="desembolso">Numero de desembolso</label>
+        </div>
+
+        <div class="form-field-icon toHide">
+            <input id="fechainicio" type="text" placeholder=" " [(ngModel)]="fechaInicio" name="fechaInicio"
+                (ngModelChange)="aplicarFiltro()">
+            <label for="fechainicio">Desde</label>
+            <i class="fa-solid fa-calendar-days"></i>
+        </div>
+
+        <div class="form-field-icon toHide">
+            <input id="fechafinal" type="text" placeholder=" " [(ngModel)]="fechaFinal" name="fechaFinal"
+                (ngModelChange)="aplicarFiltro()">
+            <label for="fechafinal">Hasta</label>
+            <i class="fa-solid fa-calendar-days"></i>
+        </div>
+
+
+    </form>
+
+    <div class="table-container">
+        <div class="table-head">
+            <div>Fecha y hora</div>
+            <div>Numero de desembolso</div>
+            <div>Tipo de documento</div>
+            <div>Numero de documento</div>
+            <div>Monto</div>
+        </div>
+        <div class="table-body">
+            <div class="table-data" *ngFor="let account of filteredAccounts">
+                <p>{{account.fecha | fecha}}</p>
+                <p>{{account.numeroDesembolso}}</p>
+                <p>{{account.tipoDocumento | documento}}</p>
+                <p>{{account?.numeroDocumento}}</p>
+                <p>{{account?.monto | currency }}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="pagination">
+            <i class="fa-solid fa-angle-left"></i>
+            <p class="page-actual">1</p>
+            <p class="total-pages">de {{totalRegisters}}</p>
+            <i class="fa-solid fa-angle-right"></i>
+            <div class="form-field-icon">
+                <input id="pages" type="text" placeholder=" " [(ngModel)]="pages" name="pages"
+                    (ngModelChange)="getPages()">
+                <label for="pages">Registros por pagina</label>
+                <i class="fa-solid fa-angle-left icon-pages"></i>
+            </div>
+        </div>
+    </div>
+
+
+</section>
