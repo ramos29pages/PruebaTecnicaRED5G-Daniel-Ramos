@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 130px auto;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.pruebaprueba {
+  background: #413e4d;
+}
+
+.logo-container {
+  margin-top: 56px;
+  height: 72px;
+  background: #ff9553 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 16px #ff868636;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+form {
+  padding: 0px;
+  z-index: 10;
+  justify-self: center;
+}
+
+h2 {
+  margin-top: 56px;
+  margin-bottom: 30px;
+  height: 40px;
+  text-align: center;
+  font: normal normal bold 24px/33px Open Sans;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.input-container {
+  display: grid;
+
+  p {
+    margin: 5px;
+  }
+
+  .form-field {
+    position: relative;
+    padding: 0 10px 0px 0px;
+    height: 56px;
+    width: 368px;
+    display: grid;
+    margin: 5px;
+
+    /* UI Properties */
+    background: var(--unnamed-color-fff5eb) 0% 0% no-repeat padding-box;
+    background: #fff5eb 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    opacity: 1;
+
+    i {
+      position: absolute;
+      right: 10px;
+      top: 25%;
+      font-size: 24px;
+      color: #ff9553;
+      opacity: 1;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    label {
+      position: absolute;
+      transition: all 0.2s linear;
+      margin-top: 15px;
+      padding-left: 5px;
+      opacity: 1;
+      font-size: 0.8rem;
+      width: 99%;
+
+      /* UI Properties */
+      color: var(--unnamed-color-ff9553);
+      text-align: center;
+      font: normal normal normal 16px/22px Open Sans;
+      letter-spacing: 0px;
+      color: #ff9553;
+      opacity: 1;
+    }
+
+    label:hover {
+      cursor: text;
+    }
+
+    input {
+      margin-top: 1rem;
+      width: 100%;
+      padding-left: 10px;
+      height: 30px;
+      background: transparent;
+      border: none;
+
+      /* UI Properties */
+      text-align: center;
+      font: normal normal normal 16px/22px Open Sans;
+      letter-spacing: 0px;
+      color: #969696;
+      opacity: 1;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      transform: translateY(-15px);
+      font-weight: 500;
+      z-index: 10;
+      font-size: 0.7rem;
+      transition: all 0.2s linear;
+
+      /* UI Properties */
+      text-align: center;
+      font: normal normal normal 12px/17px Open Sans;
+    }
+  }
+
+  .form-field:focus-within {
+    border: 2px solid #ff9553;
+  }
+}
+
+.button-container {
+  margin-top: 3em;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  button {
+    border: none;
+    padding: 10px;
+    width: 176px;
+    height: 44px;
+
+    /* UI Properties */
+    background: var(--unnamed-color-ff9553) 0% 0% no-repeat padding-box;
+    background: #ff9553 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 20px #fc620333;
+    border-radius: 22px;
+    opacity: 1;
+    text-align: center;
+    font: normal normal bold 14px/19px Open Sans;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+    &:hover {
+      background: #fb8f4c 0% 0% no-repeat padding-box;
+      cursor: pointer;
+    }
+  }
+
+  p {
+    margin-top: 2rem;
+    text-decoration: underline;
+
+    /* UI Properties */
+    text-align: center;
+    font: normal normal normal 14px/21px Open Sans;
+    letter-spacing: 0px;
+    color: #969696;
+    opacity: 1;
+    &:hover {
+      color: #ff9553;
+      cursor: pointer;
+    }
+  }
+}
+
+.info {
+  font-size: 10px;
+  color: rgba(220, 20, 60, 0.768);
+  text-align: left;
+  margin-left: 20px;
+}
+
+.error {
+  /*ESTILOS DE ERROR*/
+  box-shadow: 0px 0px 1px 1px rgba(220, 20, 60, 0.768);
+  color: crimson;
+}
+
+@media screen and (max-width: 950px) {
+}

@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+
+.swal2-popup{
+    width: 250px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .alert{
+    color: #413e4d;
+  }

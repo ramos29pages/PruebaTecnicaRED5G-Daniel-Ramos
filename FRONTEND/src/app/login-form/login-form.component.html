@@ -1,0 +1,32 @@
+<main>
+
+  <section [ngClass]="animationOne ? 'logo-container animate__animated animate__fadeInDown' : 'logo-container animate__animated animate__fadeOutUp'">
+    <img src="../../assets/img/CRC_logo negativo.png" alt="Logo">
+  </section>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <h2 [ngClass]="animationTwo ? 'title animate__animated animate__fadeInUp' : 'title animate__animated animate__fadeOutDown'">Log In</h2>
+    
+    <section [ngClass]="animationTwo ? 'input-container animate__animated animate__fadeInUp' : 'input-container animate__animated animate__fadeOutDown'">
+      <p class="info">{{infoUsername}}</p>
+      
+      <div class="form-field" [ngClass]="{error : errUsername}">
+        <input id="username" type="text" placeholder=" " formControlName="username" required>
+        <label for="username">Username</label>
+        <i class="user-icon"></i>
+      </div>
+
+      <p class="info">{{infoPassword}}</p>
+      <div class="form-field" [ngClass]="{error : errPassword}" >
+        <input id="password" [type]="passwordHidden ? 'text' : 'password'" placeholder=" " required formControlName="password">
+        <label for="password">Password</label>
+        <i (click)="showPassword()" [ngClass]="passwordHidden ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'" [hidden]="!loginForm.get('password')?.value"></i>
+      </div>
+    </section>
+
+    <section class=" animate__animated animate__fadeInUp animation-two" [ngClass]="animationTwo ? 'button-container animate__animated animate__fadeInUp' : 'button-container animate__animated animate__fadeOutDown'">
+      <button type="submit">Go!</button>
+      <p (click)="forgetPassword()">Forgot my password</p>
+    </section>
+  </form>
+
+</main>

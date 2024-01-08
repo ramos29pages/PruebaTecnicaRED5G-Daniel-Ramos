@@ -1,0 +1,22 @@
+<section>
+    <app-head [closeSection]="goHome"></app-head>
+    <div class="container">
+        <form [formGroup]="formFile" class="formulario">
+            <h2>Cargar Archivo</h2>
+            <div class="form-field-icon" [ngClass]="{error : errorFile}">
+                <input #fileInput type="file" style="display: none" (change)="uploadFile()" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, text/csv">
+                <input id="filename" type="text" placeholder=" " formControlName="filename" required (click)="selectFile()" readonly>
+                <label for="username" (click)="selectFile()" [ngClass]="{ filled: filled }"> Selecciona un archivo (.xlsx .csv)</label>
+                <i class="fa-solid fa-upload" (click)="selectFile()"></i>
+            </div>
+            <div class="infoErrorFile" *ngIf="errorFile">
+                <i class="fa-solid fa-triangle-exclamation" *ngIf="infoErrorFile"></i>
+                <p *ngIf="infoErrorFile">{{infoErrorFile}}</p>
+            </div>
+            <div class="button-container">
+                <button>Pendientes</button>
+                <button>Confirmacion</button>
+            </div>
+        </form>  
+    </div>
+</section>

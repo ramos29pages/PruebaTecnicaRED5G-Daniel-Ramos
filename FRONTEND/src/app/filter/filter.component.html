@@ -1,0 +1,19 @@
+<form [formGroup]="formFilter"  *ngIf="showFilters"  class="animate__animated animate__fade">
+    <i class="fa-solid fa-circle-xmark" *ngIf="activeFilters" (click)="clearFormFilter()"></i>
+    <div class="form-field">
+        <input id="documento" type="text" placeholder=" " formControlName="numeroDocumento" name="numeroDocumento">
+        <label for="documento">Numero de documento</label>
+    </div>
+
+    <div class="form-field">
+        <input id="desembolso" type="text" placeholder=" " formControlName="numeroId" name="numeroDesembolso">
+        <label class="daniel" for="desembolso">Numero id</label>
+    </div>
+
+    <div class="form-field">
+        <input id="desembolso" type="date" placeholder=" " formControlName="fechaPago" name="numeroDesembolso">
+        <label class="daniel" for="desembolso">Fecha</label>
+    </div>
+
+
+</form>

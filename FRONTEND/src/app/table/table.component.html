@@ -1,0 +1,35 @@
+<section class="animate__animated animate__fade">
+    <div class="button-container">
+        <h1>{{titleTable | capitalize}}</h1>
+        <app-filter [showFilters]="showFilter"></app-filter>
+        <button *ngIf="showButton" (click)="onButtonClick()">
+            {{titleButton | capitalize}}
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-head">
+            <div *ngFor="let column of columns">{{column | capitalize}} </div>
+            <div *ngIf="columns">Acciones</div>
+        </div>
+        <div class="table-body">
+            <div *ngFor="let row of data " class="table-data">
+                <p class="row" *ngFor="let cell of row">{{cell}}</p>
+                <div class="icon-container" *ngIf="data">
+                    <div class="icon">
+                        <i class="fa-solid fa-gear" title="Editar registro"></i>
+                        <p>Reconfig</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-trash" title="Eliminar registro"></i>
+                        <p>Eliminar</p>
+                    </div>
+                    <div class="icon" *ngIf="errorLogIcon">
+                        <i class="fa-solid fa-circle-info" title="Mostrar Error"></i>
+                        <p>Error log</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
