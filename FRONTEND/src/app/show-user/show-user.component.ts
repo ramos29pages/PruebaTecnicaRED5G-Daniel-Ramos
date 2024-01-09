@@ -18,9 +18,28 @@ export class ShowUserComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dataService.getData().subscribe(data=>{
-      this.columns = Object.keys(data[0])
-      this.data = data.map(obj => Object.values(obj));
+    this.dataService.getData().subscribe({
+      next: (data) => {
+        let requiredFields : any[] = data.map((obj: any) => {
+          return {
+            id: obj.id,
+            dni: obj.dni,
+            name: obj.name,
+            username: obj.username,
+            Role: obj.is_admin ? 'admin' : '',
+            Payments: obj.payments,
+          };
+        });
+
+        console.log(requiredFields);
+
+        this.columns = Object.keys(requiredFields[0]);
+        this.data = requiredFields.map((obj: any) => Object.values(obj));
+        console.log(data);
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
 
   }

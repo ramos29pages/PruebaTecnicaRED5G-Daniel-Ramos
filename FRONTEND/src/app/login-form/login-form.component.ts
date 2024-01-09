@@ -58,8 +58,11 @@ export class LoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
       console.log(username, password);
+
+      let login = this.authService.login(username, password);
+
       this.isPresent = false;
-      if (this.isPresent) {
+      if (this.isPresent && login ) {
         this.errUsername = false;
         this.animationOne = false;
         this.animationTwo = false;

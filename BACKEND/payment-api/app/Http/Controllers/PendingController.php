@@ -14,12 +14,11 @@ class PendingController extends Controller
             foreach ($request->all() as $item) {
                 $itemRequest = new Request($item);
 
-                $itemRequest->validate([
+            /*     $itemRequest->validate([
                     'documento' => 'required',
                     'monto' => 'required',
-                    'fecha_pago' => 'required',
-                    'fecha_limite' => 'required',
-                ]);
+                    'fecha_pago' => 'required'
+                ]); */
 
                 $pay_confirm = new PayConfirm;
                 $pay_confirm->documento = $itemRequest->documento;

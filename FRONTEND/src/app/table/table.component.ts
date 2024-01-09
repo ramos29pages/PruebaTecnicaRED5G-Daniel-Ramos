@@ -17,7 +17,6 @@ export class TableComponent implements OnInit {
   @Input() data!: any[][];
   @Input() columns!: string[];
   @Input() errorLogIcon: boolean = false;
-  @Input() filter: boolean = false;
 
   constructor(private dataService: GetDataService) {}
 

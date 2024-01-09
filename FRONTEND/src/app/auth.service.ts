@@ -1,31 +1,26 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './models/user.model';
-import { Account } from './models/account.model';
-import { ACCOUNTS } from './data';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
 
-  private accounts: Account[] = ACCOUNTS;
+  constructor(private http: HttpClient, private router: Router) {}
 
-  constructor() {}
-
-  getAllUsers() {
-    // return this.users;
-  }
-
-  getAllAcounts() {
-    return this.accounts;
-  }
-
-/*   login(username: string, password: string): boolean {
-    for (let user of this.users) {
-      if (user.username === username && user.password === password) {
-        return true;
+  login(username: string, password: string): boolean {
+    let state = false;
+    this.http.post('http://127.0.0.1:8000/login', {username, password}).subscribe(
+      data => {
+        this.router.navigate(['/dash']);
+        state = true;
+      },
+      (error: HttpErrorResponse) => {
+        state = false;
       }
-    }
-    return false;
-  } */
+    );
+
+    return state;
+  }
 }

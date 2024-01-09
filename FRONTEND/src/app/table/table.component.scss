@@ -14,7 +14,7 @@ section {
   .table-head,
   .table-data {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: left;
     padding-left: 30px;
     align-items: center;
@@ -65,7 +65,7 @@ section {
     }
 
     .row {
-      width: 150px;
+      width: 120px;
       display: flex;
       height: 25px;
       overflow: hidden;

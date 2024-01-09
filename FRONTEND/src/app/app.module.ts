@@ -16,6 +16,8 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { FilterComponent } from './filter/filter.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { UploadComponent } from './upload/upload.component';
+import { PreviewComponent } from './preview/preview.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -31,7 +33,9 @@ import { UploadComponent } from './upload/upload.component';
     CapitalizePipe,
     FilterComponent,
     ShowUserComponent,
-    UploadComponent
+    UploadComponent,
+    PreviewComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

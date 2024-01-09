@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class GetDataService {
 
-  private url = 'https://api.escuelajs.co/api/v1/categories';
-
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>('http://127.0.0.1:8000/users');
   }
+
+  
 }

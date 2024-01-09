@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('pay_confirms', function (Blueprint $table) {
             $table->id();
-            $table->string('documento');
-            $table->string('nombre')->nullable();
+            $table->string('documento')->nullable()->defaultValue('00000');
+            $table->string('nombre')->nullable()->defaultValue('John');
             $table->string('correo')->nullable();
-            $table->integer('monto');
-            $table->string('fecha_pago');
+            $table->integer('monto')->nullable();
+            $table->string('fecha_pago')->nullable();
             $table->string('fecha_limite')->nullable();
             $table->string('id_pago')->nullable();
             $table->string('estado')->nullable()->default('Pending');

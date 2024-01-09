@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { GetDataService } from '../get-data.service';
 import { AuthService } from '../auth.service';
 import Swal from 'sweetalert2';
@@ -44,16 +44,39 @@ export class UploadComponent {
     await this.fileInput.nativeElement.click();
   }
 
-  async uploadFile() {
-
-    if(this.validateFile()){
+  async uploadFileToConfirm() {
+    if (this.errorFile == false) {
       let object = await this.uploadFileService.uploadFile(this.file);
-    console.log(object);
-    console.log('DATA_IN_COMPONENT:::', object);
-    };
+      console.log('DATA_IN_COMPONENT:::', object);
+
+      let navigationExtras: NavigationExtras = {
+        state: {
+          object: object,
+          toConfirm: true,
+        },
+      };
+
+      this.router.navigate(['/preview'], navigationExtras);
+    }
   }
 
-  validateFile() : boolean {
+  async uploadFileToUpload() {
+    if (this.errorFile == false) {
+      let object = await this.uploadFileService.uploadFile(this.file);
+      console.log('DATA_IN_COMPONENT:::', object);
+
+      let navigationExtras: NavigationExtras = {
+        state: {
+          object: object,
+          toConfirm: false,
+        },
+      };
+
+      this.router.navigate(['/preview'], navigationExtras);
+    }
+  }
+
+  validateFile(): boolean {
     this.file = this.fileInput.nativeElement.files[0];
     if (this.file) {
       let extension = this.file.name.split('.').pop();
@@ -62,28 +85,29 @@ export class UploadComponent {
         this.infoErrorFile = '';
         this.filled = true;
         this.errorFile = false;
-        return !this.errorFile
+        return !this.errorFile;
       } else {
         this.errorFile = true;
-        this.infoErrorFile =
-          'La extension del archivo debe ser .xlsx .xlsm .csv';
-          return !this.errorFile
+        this.infoErrorFile = 'La extension del archivo debe ser .xlsx o .csv';
+        return !this.errorFile;
       }
     } else {
       this.errorFile = true;
-      this.infoErrorFile = 'Selecciona un acrhivo .xlsx .xlsm .csv';
-      return !this.errorFile
+      this.infoErrorFile = 'Selecciona un acrhivo .xlsx o .csv';
+      return !this.errorFile;
     }
   }
 
-  goHome() {
+  goHome = () => {
     Swal.fire({
       title: '¿Estas seguro?',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       confirmButtonColor: '#ff9553',
       confirmButtonText: 'Si, salir',
-    });
+    }).then(( result) => { if (result.isConfirmed){
+      this.router.navigate(['dash'])
+    }});
   }
 
   // Esta función se ejecuta cuando cambia el valor del input de tipo file
