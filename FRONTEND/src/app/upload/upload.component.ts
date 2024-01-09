@@ -18,7 +18,7 @@ export class UploadComponent {
   errorFile: boolean = false;
   infoErrorFile: string = '';
   filled: boolean = false;
-  csvData: any[] = [];
+  csvData: any;
 
   @ViewChild('fileInput') fileInput!: ElementRef;
   file: any;
@@ -45,29 +45,34 @@ export class UploadComponent {
   }
 
   async uploadFile() {
-    this.file = await this.fileInput.nativeElement.files[0];
+
+    if(this.validateFile()){
+      let object = await this.uploadFileService.uploadFile(this.file);
+    console.log(object);
+    console.log('DATA_IN_COMPONENT:::', object);
+    };
+  }
+
+  validateFile() : boolean {
+    this.file = this.fileInput.nativeElement.files[0];
     if (this.file) {
       let extension = this.file.name.split('.').pop();
       if (extension == 'xlsx' || extension == 'csv') {
-        console.log(extension);
         this.formFile.get('filename')?.setValue(this.file.name);
         this.infoErrorFile = '';
         this.filled = true;
         this.errorFile = false;
-
-        let object = this.uploadFileService.csvToObject(this.file); // Convierte el archivo CSV en un array de objetos JSON
-        this.csvData = object;
-        console.log(object);
-
-
+        return !this.errorFile
       } else {
         this.errorFile = true;
         this.infoErrorFile =
           'La extension del archivo debe ser .xlsx .xlsm .csv';
+          return !this.errorFile
       }
     } else {
       this.errorFile = true;
       this.infoErrorFile = 'Selecciona un acrhivo .xlsx .xlsm .csv';
+      return !this.errorFile
     }
   }
 
